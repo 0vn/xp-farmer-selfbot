@@ -39,18 +39,15 @@ async def farm(ctx, amount=10):
         await asyncio.sleep(random.uniform(61,65))
 
 @bot.command()
-async def count(ctx, option='on'):
+async def count(ctx, option: boolean):
     global enabled
-    if option.lower() == 'on':
+    if option.lower() == True:
         await ctx.send('Counting Enabled..')
         enabled = True
-    elif option.lower() == 'off':
+    elif option.lower() == False:
         await ctx.send('Counting Disabled..')
         enabled = False
-    elif option.lower() == 'reset':
-        global last_number
-        last_number = 0
-        await ctx.send('Count variable reset.')
+        
     else:
         await ctx.send('Counting Disabled..')
 
